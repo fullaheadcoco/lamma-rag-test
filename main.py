@@ -1,26 +1,19 @@
-import transformers
-import torch
-from huggingface_hub import login
+import rag
+import time
 
-login("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")
+# 시작 시간 기록
+start_time = time.time()
 
-model_id = "meta-llama/Meta-Llama-3.1-8B-Instruct"
+pdf_files = ['/Users/gary/Documents/sample.pdf']
+query = "who is 이경재?"
+response = rag.answer_query_from_pdfs(query, pdf_files)
 
-pipeline = transformers.pipeline(
-    "text-generation",
-    model=model_id,
-    model_kwargs={"torch_dtype": torch.bfloat16},
-    device_map="auto",
-)
+print("Question:", query)
+print("Answer:", response)
 
-messages = [
-    {"role": "system", "content": "You are a pirate chatbot who always responds in pirate speak!"},
-    {"role": "user", "content": "Who are you?"},
-]
+# 종료 시간 기록
+end_time = time.time()
 
-outputs = pipeline(
-    messages,
-    max_new_tokens=256,
-)
-print(outputs[0]["generated_text"][-1])
-
+# 실행 시간 계산
+execution_time = end_time - start_time
+print(f"코드 실행 시간: {execution_time} 초")
