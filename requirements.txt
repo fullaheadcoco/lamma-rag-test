@@ -1,6 +1,7 @@
 accelerate==0.33.0
 aiofiles==24.1.0
 anyio==4.4.0
+blinker==1.8.2
 certifi==2024.7.4
 charset-normalizer==3.3.2
 ci-info==0.3.0
@@ -13,12 +14,14 @@ etelemetry==0.3.1
 exceptiongroup==1.2.2
 filelock==3.15.4
 fitz==0.0.1.dev2
+Flask==3.0.3
 frontend==0.0.3
 fsspec==2024.6.1
 h11==0.14.0
 httplib2==0.22.0
 huggingface-hub==0.24.5
 idna==3.7
+importlib_metadata==8.2.0
 isodate==0.6.1
 itsdangerous==2.2.0
 Jinja2==3.1.4
@@ -64,3 +67,5 @@ typing_extensions==4.12.2
 tzdata==2024.1
 urllib3==2.2.2
 uvicorn==0.30.5
+Werkzeug==3.0.3
+zipp==3.20.0

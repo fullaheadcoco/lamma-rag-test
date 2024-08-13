@@ -1,5 +1,16 @@
-version: "3.0"
+version: "3.8"
+
 services:
+  web:
+    container_name: app
+    build: .
+    ports:
+      - 8080:8080
+    volumes:
+      - ./uploads:/app/uploads  # PDF 파일 업로드 디렉토리 공유
+    environment:
+      FLASK_ENV: development  # Flask 개발 모드 설정
+    command: flask run --host=0.0.0.0 --port=8080  # Flask 앱 실행 명령어
   elasticsearch:
     container_name: elastic-container
     image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
